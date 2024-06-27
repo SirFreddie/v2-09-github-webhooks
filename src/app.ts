@@ -11,11 +11,9 @@ function main() {
 
   const controller = new GithubController();
 
-  app.post("/api/github", controller.webhookHandler);
+  app.use(expres.json());
 
-  app.get("/api/ping", (req, res) => {
-    res.json({ message: "pong" });
-  });
+  app.post("/api/github", controller.webhookHandler);
 
   app.listen(envs.PORT, () => {
     console.log(`Server is running on port ${envs.PORT}`);
