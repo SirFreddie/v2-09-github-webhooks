@@ -19,7 +19,8 @@ export class DiscordService {
     });
 
     if (!resp.ok) {
-      throw new Error("Failed to send message to Discord");
+      console.error("Failed to send message to Discord");
+      return false;
     }
     return true;
   }
